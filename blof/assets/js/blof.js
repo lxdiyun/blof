@@ -15,14 +15,14 @@ angular.module('blof', ['ngResource']).
                                         ':' + data.password));
         }
         return {
-            auth: $resource('/api/auth\\/', {}, {
+            auth: $resource('/api/auth/#', {}, {
                 login:  {method: 'POST', transformRequest: add_auth_header},
                 logout: {method: 'DELETE'}
             }),
-            users: $resource('/api/users\\/', {}, {
+            users: $resource('/api/users/#', {}, {
                 create: {method: 'POST'}
             }),
-            posts: $resource('/api/posts\\/', {}, {
+            posts: $resource('/api/posts/#', {}, {
                 list:   {method: 'GET', isArray: true},
                 create: {method: 'POST'},
                 detail: {method: 'GET', url: '/api/posts/:id'},
